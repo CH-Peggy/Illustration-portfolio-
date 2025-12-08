@@ -410,15 +410,15 @@
             <section>
                 <h2>插畫作品</h2>
                 <div class="illustration-grid">
-                    <div class="illustration-item" onclick="openLightbox(0)">🎨</div>
-                    <div class="illustration-item" onclick="openLightbox(1)">🖌️</div>
-                    <div class="illustration-item" onclick="openLightbox(2)">✏️</div>
-                    <div class="illustration-item" onclick="openLightbox(3)">🎭</div>
-                    <div class="illustration-item" onclick="openLightbox(4)">🌸</div>
-                    <div class="illustration-item" onclick="openLightbox(5)">🦋</div>
-                    <div class="illustration-item" onclick="openLightbox(6)">🌈</div>
-                    <div class="illustration-item" onclick="openLightbox(7)">⭐</div>
-                    <div class="illustration-item" onclick="openLightbox(8)">🎪</div>
+                    <div class="illustration-item" onclick="openLightbox(0)">
+                        <img src="https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_1321.PNG?raw=true" alt="暖心冬日">
+                    </div>
+                    <div class="illustration-item" onclick="openLightbox(1)">
+                        <img src="https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_1288.PNG?raw=true" alt="豬豬麵包">
+                    </div>
+                    <div class="illustration-item" onclick="openLightbox(2)">
+                        <img src="https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_0957.PNG?raw=true" alt="蛇年納福">
+                    </div>
                 </div>
             </section>
             <footer>
@@ -442,13 +442,6 @@
                         <div class="product-image">😎</div>
                         <div class="product-content">
                             <h3>酷炫表情包</h3>
-                            <a href="#" class="buy-button">立即購買</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">🥰</div>
-                        <div class="product-content">
-                            <h3>戀愛表情包</h3>
                             <a href="#" class="buy-button">立即購買</a>
                         </div>
                     </div>
@@ -478,20 +471,6 @@
                             <a href="#" class="buy-button">立即購買</a>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">💕</div>
-                        <div class="product-content">
-                            <h3>愛心問候貼圖</h3>
-                            <a href="#" class="buy-button">立即購買</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">🎉</div>
-                        <div class="product-content">
-                            <h3>節慶祝福貼圖</h3>
-                            <a href="#" class="buy-button">立即購買</a>
-                        </div>
-                    </div>
                 </div>
             </section>
             <footer>
@@ -511,20 +490,6 @@
                             <a href="#" class="buy-button">立即購買</a>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">🌺</div>
-                        <div class="product-content">
-                            <h3>清新花園主題</h3>
-                            <a href="#" class="buy-button">立即購買</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">🌊</div>
-                        <div class="product-content">
-                            <h3>海洋風情主題</h3>
-                            <a href="#" class="buy-button">立即購買</a>
-                        </div>
-                    </div>
                 </div>
             </section>
             <footer>
@@ -534,82 +499,118 @@
     </div>
 
     <script>
-        let currentLightboxIndex = 0;
-        const illustrations = ['🎨', '🖌️', '✏️', '🎭', '🌸', '🦋', '🌈', '⭐', '🎪'];
+    // 1. 圖片資料陣列：縮圖 (用於頁面展示) 和 完整圖片 (用於燈箱展示)
+    let currentLightboxIndex = 0;
+    
+    // **請將這些 URL 替換為你的實際圖片網址**
+    const illustrationThumbs = [
+        'https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_1321.PNG?raw=true', // 縮圖 1
+        'https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_1288.PNG?raw=true', // 縮圖 2
+        'https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_0957.PNG?raw=true'  // 縮圖 3
+    ];
+    
+    const illustrationFulls = [
+        'https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_1321.PNG?raw=true', // 完整圖 1
+        'https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_1288.PNG?raw=true', // 完整圖 2
+        'https://github.com/CH-Peggy/Illustration-portfolio-/blob/master/IMG_0957.PNG?raw=true'  // 完整圖 3
+    ];
 
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
-            
-            if (window.innerWidth <= 768) {
-                closeMenu();
-            }
-            
-            window.scrollTo(0, 0);
+    function showPage(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => link.classList.remove('active'));
+        document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        
+        if (window.innerWidth <= 768) {
+            closeMenu();
         }
+        
+        window.scrollTo(0, 0);
+    }
 
-        function openLightbox(index) {
-            currentLightboxIndex = index;
+    // 核心修改：打開燈箱時顯示完整圖片
+    function openLightbox(index) {
+        currentLightboxIndex = index;
+        const lightbox = document.getElementById('lightbox');
+        const content = document.getElementById('lightbox-content');
+        
+        // 替換內容為 <img> 標籤，使用完整圖片網址
+        content.innerHTML = `<img src="${illustrationFulls[index]}" alt="Illustration ${index + 1}" class="lightbox-image">`;
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+        if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
             const lightbox = document.getElementById('lightbox');
-            const content = document.getElementById('lightbox-content');
-            content.innerHTML = illustrations[index];
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
+    }
 
-        function closeLightbox(event) {
-            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
-                const lightbox = document.getElementById('lightbox');
+    // 核心修改：導航燈箱時顯示下一張完整圖片
+    function navigateLightbox(direction, event) {
+        event.stopPropagation();
+        currentLightboxIndex += direction;
+        // 循環邏輯使用完整圖片陣列的長度
+        if (currentLightboxIndex < 0) {
+            currentLightboxIndex = illustrationFulls.length - 1;
+        } else if (currentLightboxIndex >= illustrationFulls.length) {
+            currentLightboxIndex = 0;
+        }
+        const content = document.getElementById('lightbox-content');
+        
+        // 替換內容為新的 <img> 標籤
+        content.innerHTML = `<img src="${illustrationFulls[currentLightboxIndex]}" alt="Illustration ${currentLightboxIndex + 1}" class="lightbox-image">`;
+    }
+
+    function toggleMenu() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+    }
+
+    function closeMenu() {
+        if (window.innerWidth <= 768) {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.remove('active');
+        }
+    }
+
+    document.querySelector('.main-content').addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            closeMenu();
+        }
+    });
+
+    // ESC 鍵關閉燈箱
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         }
+    });
 
-        function navigateLightbox(direction, event) {
-            event.stopPropagation();
-            currentLightboxIndex += direction;
-            if (currentLightboxIndex < 0) {
-                currentLightboxIndex = illustrations.length - 1;
-            } else if (currentLightboxIndex >= illustrations.length) {
-                currentLightboxIndex = 0;
-            }
-            const content = document.getElementById('lightbox-content');
-            content.innerHTML = illustrations[currentLightboxIndex];
+    // 新增：在頁面載入時生成圖片畫廊，並掛載點擊事件
+    document.addEventListener('DOMContentLoaded', () => {
+        const galleryContainer = document.getElementById('gallery-container'); 
+        if (galleryContainer) {
+            illustrationThumbs.forEach((url, index) => {
+                const imgElement = document.createElement('img');
+                imgElement.src = url;
+                imgElement.alt = `Illustration Thumbnail ${index + 1}`;
+                imgElement.classList.add('gallery-item'); 
+                imgElement.onclick = () => openLightbox(index); // 點擊時打開燈箱
+                galleryContainer.appendChild(imgElement);
+            });
         }
-
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('active');
-        }
-
-        function closeMenu() {
-            if (window.innerWidth <= 768) {
-                const sidebar = document.getElementById('sidebar');
-                sidebar.classList.remove('active');
-            }
-        }
-
-        document.querySelector('.main-content').addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                closeMenu();
-            }
-        });
-
-        // ESC 鍵關閉燈箱
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const lightbox = document.getElementById('lightbox');
-                if (lightbox.classList.contains('active')) {
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            }
-        });
-    </script>
+    });
+</script>
 </body>
 </html>
