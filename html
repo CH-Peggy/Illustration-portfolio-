@@ -445,15 +445,9 @@
                 <h2>插畫作品</h2>
                 <div class="illustration-grid">
                     <!-- 這些項目將在 JS 中綁定 Lightbox 事件 -->
-                    <div class="illustration-item">🎨</div>
-                    <div class="illustration-item">🖌️</div>
-                    <div class="illustration-item">✏️</div>
-                    <div class="illustration-item">🎭</div>
-                    <div class="illustration-item">🌸</div>
-                    <div class="illustration-item">🦋</div>
-                    <div class="illustration-item">🌈</div>
-                    <div class="illustration-item">⭐</div>
-                    <div class="illustration-item">🎪</div>
+                    <div class="illustration-item"><img src="https://drive.google.com/file/d/1vgJzSg7Z61Zpj47J4naOmZQ_h_fVQWzG/view?usp=drive_link" alt="暖心冬日"></div>
+                    <div class="illustration-item"><img src="https://drive.google.com/file/d/1xOdtbA-tzA3cRd0ABYOExzhCICW57zT_/view?usp=drive_link" alt="豬豬麵包"></div>
+                    <div class="illustration-item"><img src="https://drive.google.com/file/d/1aMzWjdzN5jRyOBoKp8QJHpsV1adEbrNC/view?usp=drive_link" alt="蛇年納福"></div>
                 </div>
             </section>
             <footer>
@@ -534,17 +528,27 @@
     </div>
 
     <script>
-        // 作品集的虛擬數據 (在實際應用中，這會是圖片 URL 和標題)
-        const illustrationData = [
-            { id: 0, content: '🎨', title: '色彩斑斕的畫作' },
-            { id: 1, content: '🖌️', title: '數位繪圖筆觸' },
-            { id: 2, content: '✏️', title: '鉛筆素描' },
-            { id: 3, content: '🎭', title: '角色設計' },
-            { id: 4, content: '🌸', title: '花卉系列' },
-            { id: 5, content: '🦋', title: '自然生態' },
-            { id: 6, content: '🌈', title: '夢幻色彩' },
-            { id: 7, content: '⭐', title: '星辰主題' },
-            { id: 8, content: '🎪', title: '奇幻馬戲團' },
+        // 作品集的資料，現在包含縮圖 (thumbUrl) 和大圖 (fullUrl) 的 URL
+const illustrationData = [
+    { 
+        id: 0, 
+        title: '暖心冬日', 
+        thumbUrl: 'https://drive.google.com/file/d/1vgJzSg7Z61Zpj47J4naOmZQ_h_fVQWzG/view?usp=drive_link', // <-- 替換這裡
+        fullUrl: 'https://drive.google.com/file/d/1vgJzSg7Z61Zpj47J4naOmZQ_h_fVQWzG/view?usp=drive_link'// <-- 替換這裡
+        ];
+
+    { 
+        id: 1, 
+        title: '豬豬麵包', 
+        thumbUrl: 'https://drive.google.com/file/d/1xOdtbA-tzA3cRd0ABYOExzhCICW57zT_/view?usp=drive_link',  // <-- 替換這裡
+        fullUrl: 'https://drive.google.com/file/d/1xOdtbA-tzA3cRd0ABYOExzhCICW57zT_/view?usp=drive_link' // <-- 替換這裡
+        ];
+
+    { 
+        id: 2, 
+        title: '蛇年納福', 
+        thumbUrl: 'https://drive.google.com/file/d/1aMzWjdzN5jRyOBoKp8QJHpsV1adEbrNC/view?usp=drive_link',  // <-- 替換這裡
+        fullUrl: 'https://drive.google.com/file/d/1aMzWjdzN5jRyOBoKp8QJHpsV1adEbrNC/view?usp=drive_link' // <-- 替換這裡
         ];
         
         let currentIllustrationIndex = 0;
