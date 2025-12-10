@@ -136,16 +136,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
         }
 
         .illustration-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 關鍵：確保圖片填滿容器且不變形 */
+            object-fit: cover;
             display: block;
             transition: transform 0.3s ease; 
-}
+        }
         
         .illustration-item:hover {
             transform: scale(1.05);
@@ -171,14 +170,19 @@
         }
 
         .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            background: #f5f5f5;
+            max-width: 90vw;
+            max-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10rem;
-            padding: 3rem;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
 
         .lightbox-close {
@@ -225,52 +229,56 @@
         /* LINE 產品卡片 */
         .line-products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
         }
 
         .product-card {
             background: white;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
+            z-index: 10;
         }
 
         .product-image {
             width: 100%;
-            height: 400px;
+            aspect-ratio: 1;
             background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .product-content {
-            padding: 0 1rem 2rem 1rem;
+            padding: 1rem;
             text-align: center;
         }
 
         .product-content h3 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #2c2c2c;
             font-weight: 400;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             letter-spacing: 0.5px;
         }
 
         .buy-button {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.5rem;
             background: #2c2c2c;
             color: white;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 400;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -316,6 +324,10 @@
             .illustration-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .line-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -353,16 +365,16 @@
 
             .line-products {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 1rem;
             }
 
             .product-image {
-                height: 350px;
+                height: auto;
             }
 
             .lightbox-content {
-                font-size: 6rem;
-                padding: 2rem;
+                max-width: 95vw;
+                max-height: 95vh;
             }
 
             .lightbox-close {
@@ -419,13 +431,13 @@
                 <h2>插畫作品</h2>
                 <div class="illustration-grid">
                     <div class="illustration-item" onclick="openLightbox(0)">
-                        <img src="IMG_1321.PNG" alt="暖心冬日">
+                        <img src="https://via.placeholder.com/600x600/FFB6C1/333?text=暖心冬日" alt="暖心冬日">
                     </div>
                     <div class="illustration-item" onclick="openLightbox(1)">
-                        <img src="IMG_1288.PNG" alt="豬豬麵包">
+                        <img src="https://via.placeholder.com/600x600/98D8C8/333?text=豬豬麵包" alt="豬豬麵包">
                     </div>
                     <div class="illustration-item" onclick="openLightbox(2)">
-                        <img src="IMG_0957.PNG" alt="蛇年納福">
+                        <img src="https://via.placeholder.com/600x600/F7DC6F/333?text=蛇年納福" alt="蛇年納福">
                     </div>
                 </div>
             </section>
@@ -440,14 +452,18 @@
                 <h2>LINE 表情貼</h2>
                 <div class="line-products">
                     <div class="product-card">
-                        <div class="product-image"><img src="ant35.png" alt="米胖 動態表情貼"></div>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x600/E8DAEF/333?text=米胖動態" alt="米胖 動態表情貼">
+                        </div>
                         <div class="product-content">
                             <h3>米胖 動態表情貼</h3>
                             <a href="https://line.me/S/emoji/?id=692fd483f014b17cffc297c7" class="buy-button">立即購買</a>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="product-image"><img src="IMG_1049.PNG" alt="幾百"></div>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x600/AED6F1/333?text=幾百" alt="幾百">
+                        </div>
                         <div class="product-content">
                             <h3>幾百</h3>
                             <a href="https://line.me/S/emoji/?id=685e38486f39046179b74cf6" class="buy-button">立即購買</a>
@@ -466,14 +482,18 @@
                 <h2>LINE 貼圖</h2>
                 <div class="line-products">
                     <div class="product-card">
-                        <div class="product-image"><img src="5656.png" alt="米胖 吃到炸藥"></div>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x600/FAD7A0/333?text=吃到炸藥" alt="米胖 吃到炸藥">
+                        </div>
                         <div class="product-content">
                             <h3>米胖 吃到炸藥</h3>
                             <a href="https://line.me/S/sticker/31711032" class="buy-button">立即購買</a>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="product-image"><img src="8989.png" alt="你在熊什麼 日常篇"></div>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x600/D5F4E6/333?text=你在熊什麼" alt="你在熊什麼 日常篇">
+                        </div>
                         <div class="product-content">
                             <h3>你在熊什麼 日常篇</h3>
                             <a href="https://line.me/S/sticker/24332714" class="buy-button">立即購買</a>
@@ -492,7 +512,9 @@
                 <h2>LINE 主題</h2>
                 <div class="line-products">
                     <div class="product-card">
-                        <div class="product-image"><img src="IMG_1131.PNG" alt="米胖 夏日時光"></div>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x600/FADBD8/333?text=夏日時光" alt="米胖 夏日時光">
+                        </div>
                         <div class="product-content">
                             <h3>米胖 夏日時光</h3>
                             <a href="https://line.me/S/shop/theme/detail?id=d7ca0afa-cee3-42e6-b29a-658e23c3c258" class="buy-button">立即購買</a>
@@ -507,20 +529,18 @@
     </div>
 
     <script>
-    // 1. 圖片資料陣列：縮圖 (用於頁面展示) 和 完整圖片 (用於燈箱展示)
     let currentLightboxIndex = 0;
     
-    // **請將這些 URL 替換為你的實際圖片網址**
     const illustrationThumbs = [
-        'IMG_1321.PNG', // 縮圖 1
-        'IMG_1288.PNG', // 縮圖 2
-        'IMG_0957.PNG'  // 縮圖 3
+        'https://via.placeholder.com/600x600/FFB6C1/333?text=暖心冬日',
+        'https://via.placeholder.com/600x600/98D8C8/333?text=豬豬麵包',
+        'https://via.placeholder.com/600x600/F7DC6F/333?text=蛇年納福'
     ];
     
     const illustrationFulls = [
-        'IMG_1321.PNG', // 完整圖 1
-        'IMG_1288.PNG', // 完整圖 2
-        'IMG_0957.PNG'  // 完整圖 3
+        'https://via.placeholder.com/1200x1200/FFB6C1/333?text=暖心冬日+Full',
+        'https://via.placeholder.com/1200x1200/98D8C8/333?text=豬豬麵包+Full',
+        'https://via.placeholder.com/1200x1200/F7DC6F/333?text=蛇年納福+Full'
     ];
 
     function showPage(pageId) {
@@ -539,13 +559,11 @@
         window.scrollTo(0, 0);
     }
 
-    // 核心修改：打開燈箱時顯示完整圖片
     function openLightbox(index) {
         currentLightboxIndex = index;
         const lightbox = document.getElementById('lightbox');
         const content = document.getElementById('lightbox-content');
         
-        // 替換內容為 <img> 標籤，使用完整圖片網址
         content.innerHTML = `<img src="${illustrationFulls[index]}" alt="Illustration ${index + 1}" class="lightbox-image">`;
         
         lightbox.classList.add('active');
@@ -560,19 +578,15 @@
         }
     }
 
-    // 核心修改：導航燈箱時顯示下一張完整圖片
     function navigateLightbox(direction, event) {
         event.stopPropagation();
         currentLightboxIndex += direction;
-        // 循環邏輯使用完整圖片陣列的長度
         if (currentLightboxIndex < 0) {
             currentLightboxIndex = illustrationFulls.length - 1;
         } else if (currentLightboxIndex >= illustrationFulls.length) {
             currentLightboxIndex = 0;
         }
         const content = document.getElementById('lightbox-content');
-        
-        // 替換內容為新的 <img> 標籤
         content.innerHTML = `<img src="${illustrationFulls[currentLightboxIndex]}" alt="Illustration ${currentLightboxIndex + 1}" class="lightbox-image">`;
     }
 
@@ -594,7 +608,6 @@
         }
     });
 
-    // ESC 鍵關閉燈箱
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             const lightbox = document.getElementById('lightbox');
@@ -602,21 +615,6 @@
                 lightbox.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
-        }
-    });
-
-    // 新增：在頁面載入時生成圖片畫廊，並掛載點擊事件
-    document.addEventListener('DOMContentLoaded', () => {
-        const galleryContainer = document.getElementById('gallery-container'); 
-        if (galleryContainer) {
-            illustrationThumbs.forEach((url, index) => {
-                const imgElement = document.createElement('img');
-                imgElement.src = url;
-                imgElement.alt = `Illustration Thumbnail ${index + 1}`;
-                imgElement.classList.add('gallery-item'); 
-                imgElement.onclick = () => openLightbox(index); // 點擊時打開燈箱
-                galleryContainer.appendChild(imgElement);
-            });
         }
     });
 </script>
