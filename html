@@ -407,7 +407,7 @@
         <a class="logo" onclick="showPage('illustrations')">Peggy's illustration</a>
         <nav>
             <ul>
-                <li><a onclick="showPage('illustrations')" class="nav-link active" data-page="illustrations">插畫作品</a></li>
+                <li><a onclick="showPage('illustrations')" class="nav-link active" data-page="illustrations">插畫</a></li>
                 <li><a onclick="showPage('line-emoji')" class="nav-link" data-page="line-emoji">LINE 表情貼</a></li>
                 <li><a onclick="showPage('line-stickers')" class="nav-link" data-page="line-stickers">LINE 貼圖</a></li>
                 <li><a onclick="showPage('line-themes')" class="nav-link" data-page="line-themes">LINE 主題</a></li>
@@ -425,11 +425,14 @@
 
     <!-- 主要內容區 -->
     <div class="main-content">
-        <!-- 插畫作品頁面 -->
+        <!-- 插畫頁面 -->
         <div class="page active" id="illustrations">
             <section>
-                <h2>插畫作品</h2>
+                <h2>插畫</h2>
                 <div class="illustration-grid">
+                    <div class="illustration-item" onclick="openLightbox(0)">
+                        <img src="IMG_1131.PNG" alt="熱可可">
+                    </div>
                     <div class="illustration-item" onclick="openLightbox(0)">
                         <img src="IMG_1321.PNG" alt="暖心冬日">
                     </div>
@@ -532,12 +535,14 @@
     let currentLightboxIndex = 0;
     
     const illustrationThumbs = [
+        'IMG_1131.PNG',
         'IMG_1321.PNG',
         'IMG_1288.PNG',
         'IMG_0957.PNG'
     ];
     
     const illustrationFulls = [
+        'IMG_1131.PNG',
         'IMG_1321.PNG',
         'IMG_1288.PNG',
         'IMG_0957.PNG'
